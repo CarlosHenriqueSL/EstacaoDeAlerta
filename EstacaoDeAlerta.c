@@ -204,7 +204,7 @@ void vTaskMatriz(void *pvParameters)
     }
 }
 
-/* Tarefa para leitura do joystick e envio à fila. O nivel da agua eh lido pelo adc no eixo X e o volume de
+/* Tarefa para leitura do joystick e envio a fila. O nivel da agua eh lido pelo adc no eixo X e o volume de
  * chuva eh lido pelo adc no eixo Y. */
 void vTaskJoystick(void *pvParameters)
 {
