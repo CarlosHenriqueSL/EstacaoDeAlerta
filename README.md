@@ -50,12 +50,11 @@ Utilizar tarefas do **FreeRTOS** para controlar LEDs, buzzer, matriz WS2812, dis
 ### 🛠️ Estrutura do Código
 
 * **vTaskRGB**: Gerencia LEDs RGB via PWM.
-* **vTaskMatriz**: Controla matriz WS2812 e desenha números com PIO.
+* **vTaskMatriz**: Controla a matriz WS2812
 * **vTaskDisplay**: Inicializa e atualiza o SSD1306 via I2C.
-* **vTaskBuzzer**: Emite sons com PWM conforme o modo e cor.
-* **vTaskBotao**: Lê o botão A, implementa debounce e alterna `modoNormalOn`.
-
-Cada tarefa roda com `configMINIMAL_STACK_SIZE` e prioridade `tskIDLE_PRIORITY`.
+* **vTaskBuzzer**: Emite sons com PWM conforme o modo
+* **vTaskJoystick**: Faz a leitura com ADC e converte em porcentagem.
+* **vTaskProcessamento**: Processa os dados armazenados na fila.
 
 ---
 
@@ -63,10 +62,8 @@ Cada tarefa roda com `configMINIMAL_STACK_SIZE` e prioridade `tskIDLE_PRIORITY`.
 
 ### Principais Arquivos
 - **`EstacaoDeAlerta.c`**: Contém a lógica principal do programa, com todas as tarefas.
-    de LED e para configuração do FreeRTOS.
-- **`lib/`**: Contém os arquivos com a lógica principal para desenhar no display ssd1306, também contém os arquivos com os desenhos da matriz
-    de LED e para configuração do FreeRTOS.
-- **`lib/numeros.c`**:  Contém os desenhos dos números que serão feitos na matriz de LEDs.
+- **`lib/`**: Contém os arquivos com a lógica principal para desenhar no display ssd1306, também contém os arquivos com os desenhos da matriz de LEDs e para a configuração do FreeRTOS.
+- **`lib/matriz.c`**:  Contém os desenhos que serão feitos na matriz de LEDs.
 - **`lib/ssd1306.c`**: Contém as funções para desenhar no display ssd1306.
 - **`blink.pio`**: Contém a configuração em Assembly para funcionamento do pio.
 - **`README.md`**: Documentação detalhada do projeto.
